@@ -1,17 +1,41 @@
-function toggleMode() {
-  const html = document.documentElement
-  html.classList.toggle("light")
+document.addEventListener('DOMContentLoaded', function() {
+  const accessCountElement = document.getElementById('access-count');
 
-  // pegar a tag img
-  const img = document.querySelector("#profile img")
+  let accessCount = localStorage.getItem('accessCount');
 
-  // substituir a imagem
-  if (html.classList.contains("light")) {
-    // se tiver light mode, adicionar a imagem light
-    img.setAttribute("src", "./assets/avatar-light.png")
-  } else {
-    // set tiver sem light mode, manter a imagem normal
-    img.setAttribute("src", "./assets/fundoOficina2.png")
+  if (!accessCount) {
+    accessCount = 0;
   }
-  src = "./assets/fundoOficina2.png"
-}
+
+  accessCount++;
+
+  localStorage.setItem('accessCount', accessCount);
+
+  accessCountElement.textContent = accessCount;
+
+  const links = document.querySelectorAll('#social-links a');
+
+  links.forEach(link => {
+    link.addEventListener('mouseenter', function() {
+      this.classList.add('btn-primary');
+    });
+    link.addEventListener('mouseleave', function() {
+      this.classList.remove('btn-primary');
+    });
+  });
+
+  
+  function initMap() {
+    const map = L.map('map').setView([-20.517431, -54.663514], 15); // Latitude e Longitude da localização desejada
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([-20.517431, -54.663514]).addTo(map)
+      .bindPopup('D & J CENTRO AUTOMOTIVO')
+      .openPopup();
+  }
+
+  initMap();
+});

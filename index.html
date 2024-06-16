@@ -2,70 +2,92 @@
 <html lang="pt-br">
 
 <head>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D & J CENTRO AUTOMOTIVO</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="container">
-    <div id="profile">
-      <img src="./assets/fundoOficina2.png"
-        alt="Foto de Mayk Brito sorrindo, usando óculos e camisa preta, barba e fundo amarelo." />
-      <p>D & J CENTRO AUTOMOTIVO</p>
+  <header class="bg-dark text-white text-center py-4">
+    <div id="profile" class="text-center">
+      <img src="./assets/fundoOficina2.png" class="img-fluid rounded-circle mb-3 py-6"
+        alt="Imagem do Centro Automotivo">
+    </div>
+    <h1>D & J CENTRO AUTOMOTIVO</h1>
+    <h6>Segunda a Sexta das 08h às 18h</h6>
+
+  </header>
+
+  <main class="container my-5 py-4">
+    <div id="photo-carousel" class="carousel slide " data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+        <div class="carousel-item active">
+          <img src="assets/Tipos-de-Manutencao.png" class="mx-auto d-block w-50" alt="Foto">
+        </div>
+        <div class="carousel-item">
+          <a href="https://wa.me/message/QWD2FU7QLXQ6D1"><img src="assets/correia-dentada-2-1.png"
+              class="mx-auto d-block" alt="Foto"></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://wa.me/message/QWD2FU7QLXQ6D1"><img src="assets/revisao-de-freios.png" class="mx-auto d-block"
+              alt="Foto"></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://wa.me/message/QWD2FU7QLXQ6D1"> <img src="assets/troca-de-oleo.png" class="mx-auto d-block"
+              alt="Foto"></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://wa.me/message/QWD2FU7QLXQ6D1"> <img src="assets/Amortecedores-1.png" class="mx-auto d-block"
+              alt="Foto"></a>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#photo-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="background-color: rgb(48, 48, 48);" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#photo-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="background-color: rgb(48, 48, 48);" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
 
-    <ul>
-      <li>
-        <a href="https://wa.me/message/QWD2FU7QLXQ6D1" target="_blank">Contate-nos via whatsapp ✅</a>
+    <ul class="list-group mb-5">
+      <li class="list-group-item" style="margin-top: 60px;">
+        <a href="https://wa.me/message/QWD2FU7QLXQ6D1" class="btn btn-success btn-lg w-100" target="_blank">
+          Contate-nos via WhatsApp ✅
+        </a>
       </li>
-
-      <li>
-        <a href="https://instagram.com/dejcentroautomotivo?igshid=YmMyMTA2M2Y=" target="_blank">Siga-nos no Instagram ❤️</a>
+      <li class="list-group-item">
+        <a href="https://g.page/r/CdbGbyuzxiroEBE/review" class="btn btn-primary btn-lg w-100" target="_blank">
+          Avalie nosso atendimento 👍
+        </a>
       </li>
-
-      <li>
-        <a href="https://g.page/r/CdbGbyuzxiroEBE/review" target="_blank">Avalie nosso atendimento👍</a>
-      </li>
-
-      <li>
-        <a href="https://goo.gl/maps/LXBZqXHTkum5BuG98" target="_blank">Nossa localização 🌎</a>
+      <li class="list-group-item">
+        <a href="https://goo.gl/maps/LXBZqXHTkum5BuG98" class="btn btn-info btn-lg w-100" target="_blank">
+          Nossa localização 🌎
+        </a>
+        <div id="map" class="mb-5" style="height: 400px;"></div>
       </li>
     </ul>
-    <div id="social-links">
-      <a href="#" target="_blank">
-        <ion-icon name="car"></ion-icon>
-      </a>
-
-      <a href="#" target="_blank">
-        <ion-icon name="build-outline"></ion-icon>
-      </a>
-
-      <a href="#" target="_blank">
-        <ion-icon name="car-sport-outline"></ion-icon>
-      </a>
-
-      <a href="#" target="_blank">
-        <ion-icon name="flash-outline"></ion-icon>
-      </a>
+   
+  </main>  
+  <footer class="bg-dark text-white text-center py-4">
+    Produzido por <a href="https://wa.me/qr/WHRU7A2MW3R6E1" class="text-white" target="_blank">Rodrigo Bispo</a>
+    <div class="text-center">
+      <p class="lead">Número de acessos: <span id="access-count">0</span></p>
     </div>
+  </footer>
 
-    <footer>
-      Produzido por
-      <a href="https://wa.me/qr/WHRU7A2MW3R6E1" target="_blank">Rodrigo Bispo</a>
-    </footer>
-  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="./script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-
 </body>
 
 </html>
